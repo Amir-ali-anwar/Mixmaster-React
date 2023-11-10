@@ -1,4 +1,4 @@
 const App = () => {
-  return <h1>Unsplash Images Starter</h1>;
+  return <h2>mixmaster starter</h2>;
 };
 export default App;
