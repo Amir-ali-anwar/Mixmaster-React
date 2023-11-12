@@ -1,8 +1,11 @@
 import React from 'react'
-
+import Wrapper from '../assets/wrappers/ErrorPage'
+import { Link, useRouteError } from 'react-router-dom';
+import img from '../assets/not-found.svg';
 const Error = () => {
+    
   return (
-    <div>Error</div>
+    <Wrapper>Error</Wrapper>
   )
 }
 
