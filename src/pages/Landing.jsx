@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React from 'react'
 import { useLoaderData } from 'react-router-dom'
+import CocktailList from '../components/'
 const cocktailSearchUrl =
   'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 export const loader= async()=>{
