@@ -1,11 +1,11 @@
 import React from 'react'
 import NavbarWrapper from '../assets/wrappers/Navbar'
-import { NavLink } from 'react-router-dom'
+import { NavLink,Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <NavbarWrapper>
         <div className='nav-center'>
-            <span className='logo'>MixMaster</span>
+        <Link className='logo' to='/'>MixMaster</Link>
             <div className='nav-links'>
                  <NavLink to='/' className="nav-link">
                     Home
