@@ -4,7 +4,7 @@ import Error from './Error'
 import HomeLayout from './HomeLayout.jsx'
 import Landing from './Landing.jsx'
 import NewsLetter from './NewsLetter.jsx'
-export  {
+export {
     About,
     Cocktail,
     Error,

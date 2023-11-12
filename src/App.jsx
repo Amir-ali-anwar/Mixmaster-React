@@ -1,5 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import {Error} from './pages'
+import {   About,
+  Cocktail,
+  Error,
+  HomeLayout,
+  Landing,
+  NewsLetter} from './pages'
 const router = createBrowserRouter(
   [
     {
