@@ -1,13 +1,16 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 const HomeLayout = () => {
+  const navigation = useNavigation();
+  const isNavigation = navigation.state === "loading";
+  console.log(navigation);
   return (
     <>
-    <Navbar />
-    <section className="page">
-      <Outlet />
-    </section>
+      <Navbar />
+      <section className="page">
+        {isNavigation ? <div className="loading" /> : <Outlet />}
+      </section>
     </>
   );
 };
