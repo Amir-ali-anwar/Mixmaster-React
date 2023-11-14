@@ -1,8 +1,59 @@
 import React from 'react'
+import { Form } from 'react-router-dom'
 
 const NewsLetter = () => {
   return (
-    <div>NewsLetter</div>
+    <Form className='form' method='POST'>
+       <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        our newsletter
+      </h4>
+      <div className='form-row'>
+        <label htmlFor='name' className='form-label'>
+          name
+        </label>
+        <input
+          type='text'
+          className='form-input'
+          name='name'
+          id='name'
+          required
+        />
+      </div>
+       {/* lastName */}
+       <div className='form-row'>
+        <label htmlFor='lastName' className='form-label'>
+          last name
+        </label>
+        <input
+          type='text'
+          className='form-input'
+          name='lastName'
+          id='lastName'
+          required
+        />
+      </div>
+      {/* email */}
+      <div className='form-row'>
+        <label htmlFor='email' className='form-label'>
+          email
+        </label>
+        <input
+          type='text'
+          className='form-input'
+          name='email'
+          id='email'
+          defaultValue='test@test.com'
+          required
+        />
+      </div>
+      <button
+        type='submit'
+        className='btn btn-block'
+        style={{ marginTop: '0.5rem' }}
+      >
+       submit
+      </button>
+    </Form>
   )
 }
 
