@@ -12,14 +12,12 @@ export const action = async ({request})=>{
     toast.success(response.data.msg);
     return redirect('/');
   } catch (error) {
-    console.log(error);
     toast.error(error?.response?.data?.msg);
     return error;
   }
 }
 const NewsLetter = () => {
   const {state}= useNavigation()
-  console.log(state);
   return (
     <Form className='form' method='POST'>
        <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>
