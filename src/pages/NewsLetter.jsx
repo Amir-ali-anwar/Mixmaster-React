@@ -18,6 +18,8 @@ export const action = async ({request})=>{
   }
 }
 const NewsLetter = () => {
+  const {state}= useNavigation()
+  console.log(state);
   return (
     <Form className='form' method='POST'>
        <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -65,9 +67,10 @@ const NewsLetter = () => {
       <button
         type='submit'
         className='btn btn-block'
+        disabled={state==='submitting'}
         style={{ marginTop: '0.5rem' }}
       >
-       submit
+       {state==='submitting'? 'Submitting' :"Submit"}
       </button>
     </Form>
   )
