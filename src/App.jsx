@@ -1,4 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   About,
   Cocktail,
@@ -6,11 +8,19 @@ import {
   HomeLayout,
   Landing,
   NewsLetter,
-  SinglePageError
+  SinglePageError,
 } from "./pages";
-import {loader as landingLoader} from './pages/Landing'
-import {loader as SingleCocktailLoader} from './pages/Cocktail'
-import {action as NewsLetterAction} from './pages/NewsLetter'
+import { loader as landingLoader } from "./pages/Landing";
+import { loader as SingleCocktailLoader } from "./pages/Cocktail";
+import { action as NewsLetterAction } from "./pages/NewsLetter";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+    },
+  },
+});
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,31 +28,36 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        index:true,
-        element:<Landing />,
-        errorElement:<SinglePageError/>,
-        loader:landingLoader
+        index: true,
+        element: <Landing />,
+        errorElement: <SinglePageError />,
+        loader: landingLoader(queryClient),
       },
       {
         path: "newsletter",
         element: <NewsLetter />,
-        action:NewsLetterAction,
+        action: NewsLetterAction,
         errorElement: <SinglePageError />,
       },
       {
         path: "about",
-        element: <About />
+        element: <About />,
       },
       {
-        path: 'cocktail/:id',
+        path: "cocktail/:id",
         element: <Cocktail />,
-        errorElement:<SinglePageError/>,
-        loader:SingleCocktailLoader
+        errorElement: <SinglePageError />,
+        loader: SingleCocktailLoader,
       },
     ],
   },
 ]);
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />;
+      <ReactQueryDevtools  />
+    </QueryClientProvider>
+  );
 };
 export default App;
