@@ -14,9 +14,10 @@ const searchCocktailsQuery= (searchTerm)=>{
     }
   }
 }
-  export const loader = async ({request}) => {
+  export const loader=(queryClient) => async ({request}) => {
   console.log(request);
   const searchTerm= new URL(request.url).searchParams.get('search') || ''
+    await queryClient.ensureQueryData(searchCocktailsQuery(searchTerm))
   return {searchTerm};
 };
 const Landing = () => {
