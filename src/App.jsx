@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         path: "cocktail/:id",
         element: <Cocktail />,
         errorElement: <SinglePageError />,
-        loader: SingleCocktailLoader,
+        loader: SingleCocktailLoader(queryClient),
       },
     ],
   },
