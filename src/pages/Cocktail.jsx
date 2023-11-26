@@ -48,7 +48,6 @@ const Cocktail = () => {
       }
       return acc
   },[])
-  console.log(validIngeridents);
   const {
     strDrink: name,
     strDrinkThumb: image,
